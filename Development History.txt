@@ -1,0 +1,24 @@
+
+
+
+------------------------------------------------------------------------Tag 0.0.1----------------------------------------------------------------------------------
+we will create a base vue3 + electron project following the next video: https://www.youtube.com/watch?v=Fl7---SEORQ&ab_channel=AndreMadarang
+
+Create a vue project with the following command:
+    - vue create internshipmanager
+
+------------------------------------------------------------------------Tag 0.0.2-----------------------------------------------------------------------------------
+
+Add a electron dependecy to the current project:
+    - vue add electron-builder
+
+------------------------------------------------------------------------Tag 0.0.3-----------------------------------------------------------------------------------
+
+Add bootstrap for project styling:
+    - npm install --save @popperjs/core bootstrap
+
+we have to add the following lines to main.js (vue) to share the library across every vue component
+
+    import "bootstrap/dist/css/bootstrap.min.css"
+    import "bootstrap"
+
