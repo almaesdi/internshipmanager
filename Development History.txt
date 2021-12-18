@@ -1,24 +1,43 @@
 
 
 
-------------------------------------------------------------------------Tag 0.0.1----------------------------------------------------------------------------------
-we will create a base vue3 + electron project following the next video: https://www.youtube.com/watch?v=Fl7---SEORQ&ab_channel=AndreMadarang
+------------------------------------------------------------------------Tag 0.0.1 (Vue Project)----------------------------------------------------------------------------------
+* we will create a base vue3 + electron project following the next video: https://www.youtube.com/watch?v=Fl7---SEORQ&ab_channel=AndreMadarang
 
-Create a vue project with the following command:
++ Create a vue project with the following command:
     - vue create internshipmanager
 
-------------------------------------------------------------------------Tag 0.0.2-----------------------------------------------------------------------------------
+------------------------------------------------------------------------Tag 0.0.2 (Electron Project)-----------------------------------------------------------------------------
 
-Add a electron dependecy to the current project:
++ Add a electron dependecy to the current project:
     - vue add electron-builder
 
-------------------------------------------------------------------------Tag 0.0.3-----------------------------------------------------------------------------------
+------------------------------------------------------------------------Tag 0.0.3 (Bootstrap)------------------------------------------------------------------------------------
 
-Add bootstrap for project styling:
++ Add bootstrap for project styling:
     - npm install --save @popperjs/core bootstrap
 
-we have to add the following lines to main.js (vue) to share the library across every vue component
++ Add following lines to main.js (vue) to share the library across every vue component
 
     import "bootstrap/dist/css/bootstrap.min.css"
     import "bootstrap"
+
+------------------------------------------------------------------------Tag 0.0.4 (Communication electron/vue)---------------------------------------------------------------------
+* based on https://medium.com/swlh/how-to-safely-set-up-an-electron-app-with-vue-and-webpack-556fb491b83
+
++ Add communication between main process (electron/node) and renderer process (vue):
+
+    The backend process can use the ipcMain module, and the renderer process has access to ipcRenderer. The docs explain how to send and receive messages, but 
+    what they don’t explain is how to use ipcRenderer in the renderer process. After all, it's part of the electron node module, and as we've already seen, 
+    node modules are not available on the client-side. We will change that by adding a preload script.
+
++ Create preload script under src directory exposing ipcRenderer to client (vue) with "send" and "on" methods. We can define input and output (listening) channels 
+  for renderer independently
+
++ Add preload script to "vue.config.js" (make file if doesnt exist)
+
++ Register preload script into webPreferences of the creation of main window (dont forget to import "path" module)
+
++ add some examples messages between electron and renderer, can see them on both consoles (node console (electron "backend") and javascript console(vue "frontend"))
+
 

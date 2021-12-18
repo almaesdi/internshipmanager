@@ -28,3 +28,18 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  mounted(){
+
+    //*****************************EXAMPLE(it should be deleted):******************************** */
+    window.ipcRenderer.on('rendererOutputChannelTest', (payload) => {
+      console.log(payload.data);
+    });
+  
+    window.ipcRenderer.send('rendererInputChannelTest', {data: 'hello from vue!'})
+    //*****************************/EXAMPLE(it should be deleted):******************************** */
+  }
+}
+</script>
