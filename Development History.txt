@@ -1,8 +1,5 @@
-
-
-
 ------------------------------------------------------------------------Tag 0.0.1 (Vue Project)----------------------------------------------------------------------------------
-* we will create a base vue3 + electron project following the next video: https://www.youtube.com/watch?v=Fl7---SEORQ&ab_channel=AndreMadarang
+* Create a base vue3 + electron project following the video: https://www.youtube.com/watch?v=Fl7---SEORQ&ab_channel=AndreMadarang
 
 + Create a vue project with the following command:
     - vue create internshipmanager
@@ -24,6 +21,7 @@
 
 ------------------------------------------------------------------------Tag 0.0.4 (Communication electron/vue)---------------------------------------------------------------------
 * based on https://medium.com/swlh/how-to-safely-set-up-an-electron-app-with-vue-and-webpack-556fb491b83
+* based on https://stackoverflow.com/questions/63615355/how-to-import-ipcrenderer-in-vue-js-dirname-is-not-defined
 
 + Add communication between main process (electron/node) and renderer process (vue):
 
@@ -40,4 +38,12 @@
 
 + add some examples messages between electron and renderer, can see them on both consoles (node console (electron "backend") and javascript console(vue "frontend"))
 
+------------------------------------------------------------------------Tag 0.0.5 (Persisting Data on DB file)----------------------------------------------------------------------
+* based on https://fmacedoo.medium.com/standalone-application-with-electron-react-and-sqlite-stack-9536a8b5a7b9
 
++ Add sqlite to project
+    - npm install sqlite3
+
++ add an example database file (sqlite) with 1 table and 3 rows
+
++ add example fetch query and show that data on node console
