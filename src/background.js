@@ -5,21 +5,9 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
+import './ipceventhandler.js'
 const path = require('path')
-const { ipcMain } = require('electron')
 const sqlite3 = require('sqlite3');
-
-//*****************************EXAMPLE(it should be deleted):******************************** */
-const database = new sqlite3.Database('./public/example.db', (err) => {
-  if (err) console.error('Database opening error: ', err);
-});
-
-const sql_query = 'SELECT * FROM people'
-
-database.all(sql_query, (err, rows) => {
-  console.log(rows);
-});
-//*****************************/EXAMPLE(it should be deleted):******************************** */
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -49,11 +37,6 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
-
-  //*****************************EXAMPLE(it should be deleted):******************************** */
-  //Sending payload to renderer
-  win.webContents.send('rendererOutputChannelTest',{data: 'Hello from electron!'});
-  //*****************************/EXAMPLE(it should be deleted):******************************** */
 
 }
 
@@ -101,10 +84,3 @@ if (isDevelopment) {
     })
   }
 }
-
-//*****************************EXAMPLE(it should be deleted):******************************** */
-//Payload recived from renderer (vue)
-ipcMain.on('rendererInputChannelTest', (event, payload) => {
-  console.log(payload.data)
-});
-//*****************************/EXAMPLE(it should be deleted):******************************** */

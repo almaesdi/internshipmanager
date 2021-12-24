@@ -47,3 +47,39 @@
 + add an example database file (sqlite) with 1 table and 3 rows
 
 + add example fetch query and show that data on node console
+
+------------------------------------------------------------------------Tag 0.1.0 (Students Module)---------------------------------------------------------------------------------
++ Persisting Data:
+    - Make a project database (data.db) in the public directory.
+    - Add a Student table with dummy data
+    - Add a file containging CRUD Student Queries and Sqlite connection
+
++ Electron:
+    - Add a file containging all event handling
+    - Add events listening, queries executes and event replies to render
+    - Register events in preload.js file
+
++ Vuex:
+    - Add Students var
+    - Add Student CRUD methods and actions
+    - CRUD to persisting data (sqllite) using IPC through electron events
+
++ Vue: 
+    - Add Navbar to be used in whole project
+    - Student view
+    - 2 form components (add/edit student) to be used as dialog window
+
++ Router:
+    - Add Student route
+
++ Project: 
+    - Delete all sample code of the previous tag
+    - Add "no-unused-vars": "off" on eslintrc.js file for avoid to show unused vars "errors"
+    - add boostrap icon library and it import to main.js
+        - npm install bootstrap-icons
+    - Everytime data.db is modify (Insert, update, delete) the project is refreshed (hot reload). This happen because we are using a database file in the root project folder, so,
+      hotreload module catch those changes and do a reload. For avoid this situation, we modify "vue.config.js" for hotreload modules can ignore some directories or files.
+
++ Todo/Pending:
+    - SQLite Exception handling
+    - Form Data Validation
